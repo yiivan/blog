@@ -3,6 +3,23 @@ Rails.application.routes.draw do
   root "home#index"
   get "/about" => "home#about"
 
+  resources :users, only: [:new, :create] do
+    get :edit, on: :collection
+    patch :update, on: :collection
+    get :edit_password, on: :collection
+    patch :update_password, on: :collection
+  end
+
+  resources :sessions, only: [:new, :create] do
+    delete :destroy, on: :collection
+  end
+
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+    resources :favorites, only: [:create, :destroy]
+  end
+
+  resources :favorites, only: :index
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
