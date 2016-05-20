@@ -31,3 +31,7 @@ Tag.create([{name: "Branding"},
             {name: "Review"},
             {name: "Self"},
             {name: "Today"}])
+
+User.create(first_name: 'Evan', last_name: 'Tay',
+              email: 'evan@gmail.com', password: 'abc',
+              password_confirmation: 'abc', admin: true)

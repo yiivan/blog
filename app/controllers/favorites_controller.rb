@@ -1,15 +1,20 @@
 class FavoritesController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :post
 
   def create
     favorite = Favorite.new
     favorite.user = current_user
     favorite.post = post
-    if favorite.save
-      redirect_to post, notice: "Favorite saved!"
-    else
-      redirect_to post, alert: "You'va already make this into your favorite!"
+    respond_to do |format|
+      if favorite.save
+        format.html { redirect_to post, notice: "Favorite saved!" }
+        format.js   { render }
+      else
+        format.html { redirect_to post, alert: "You'va already make this into your favorite!" }
+        format.js   { render js: "alert('Can\'t favorite, please refresh the page!');" }
+      end
     end
   end
 
@@ -19,7 +24,10 @@ class FavoritesController < ApplicationController
   def destroy
     favorite = Favorite.find params[:id]
     favorite.destroy
-    redirect_to post_path(favorite.post_id), notice: "Favorite deleted!"
+    respond_to do |format|
+      format.html { redirect_to post_path(favorite.post_id), notice: "Favorite deleted!" }
+      format.js { render }
+    end
   end
 
   private

@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
 
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
-  
+
 
   validates :title, presence: true, uniqueness: true, length: { minimum: 7 }
   validates :body, presence: true
@@ -23,7 +23,7 @@ class Post < ActiveRecord::Base
   end
 
   def favorite_for(user)
-    favorites.find_by_user_id user
+    favorites.find_by_user_id user if user
   end
 
 end
