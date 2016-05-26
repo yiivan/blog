@@ -62,9 +62,4 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body, :category_id, tag_ids: [])
   end
 
-  # def user_favorite
-  #   @user_favorite ||= @post.favorite_for(current_user)
-  # end
-  # helper_method :user_favorite
-
 end

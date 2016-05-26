@@ -1,7 +1,6 @@
 class FavoritesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :post
 
   def create
     favorite = Favorite.new
@@ -22,6 +21,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
+    post
     favorite = Favorite.find params[:id]
     favorite.destroy
     respond_to do |format|

@@ -13,6 +13,7 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true, uniqueness: true, length: { minimum: 7 }
   validates :body, presence: true
+  validates :category, presence: true
 
   def self.search(search)
     where( "title ILIKE :term OR body ILIKE :term", term: "%#{search}%" )

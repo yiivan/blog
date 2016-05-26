@@ -9,10 +9,6 @@ class Ability
 
     alias_action :create, :read, :update, :destroy, :to => :crud
 
-    # can :crud, Post do |p|
-    #   user.admin? && user.persisted?
-    # end
-
     can :crud, Comment do |c|
       (c.post.user == user || c.user == user) && user.persisted?
     end
