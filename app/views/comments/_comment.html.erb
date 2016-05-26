@@ -1,0 +1,21 @@
+<div id="<%= dom_id(comment) %>" style="<%= style if defined?(style) %>">
+  By: <%= comment.user.full_name.titleize %>
+  <br>
+  <%= comment.body %>
+  <br>
+  <% if can? :edit, comment %>
+    <%= link_to "Edit", edit_post_comment_path(@post, comment),
+                      remote: true,
+                      data: {toggle: "modal", target: "#edit-comment"},
+                      class: "btn btn-primary btn-sm"
+                      %>
+  <% end %>
+  <% if can? :destroy, comment %>
+    <%= link_to "delete", post_comment_path(@post, comment),
+                          method: :delete,
+                          remote: true,
+                          data: {confirm: "Are you sure?"} %>
+  <% end %>
+  <br>
+  <br>
+</div>

@@ -1,0 +1,19 @@
+<h1>Evan's Blog Posts</h1>
+
+<%= form_tag posts_path, method: :get, id: "search-form" do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Posts..." %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<% if @posts.present? %>
+  <ul>
+    <% @posts.each do |p| %>
+      <li><%= link_to p.title, post_path(p) %> created at: <%= p.created_at.strftime("%Y-%b-%d") %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h3>There are no blog posts containing the term "<%= params[:search] %>".</h3>
+<% end %>
+
+<%= paginate @posts %>
+<%= page_entries_info @posts %>

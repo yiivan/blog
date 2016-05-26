@@ -1,0 +1,48 @@
+<h1><%= @post.title %></h1>
+<h3>Category: <%= @post.category.title %></h3>
+<p><%= @post.body %></p>
+<p>Tags: <%= @post.tags.map{|t| t.name }.join(", ") %></p>
+<% if can? :update, @post %>
+  <%= link_to "Edit", edit_post_path(@post) %>
+<% end %>
+<% if can? :destroy, @post %>
+  <%= link_to "Delete", post_path(@post),
+                        method: :delete,
+                        data: {confirm: "Are you sure you want to delete this post?"}%>
+<% end %>
+
+<div id="post-favorite">
+  <%= render "/favorites/favorite" %>
+</div>
+
+<hr>
+<div id="comment-form">
+  <%= render "/comments/form", comment: @comment %>
+</div>
+
+<h3>Comments:</h3>
+<div id="comments">
+  <% @post.comments.order(created_at: :desc ).each do |comm| %>
+    <%= render "/comments/comment", comment: comm %>
+  <% end %>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="edit-comment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit Answer</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Update Comment</button>
+      </div>
+    </div>
+  </div>
+</div>

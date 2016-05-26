@@ -1,0 +1,4 @@
+$("#edit-comment").modal('hide')
+
+$("#<%= dom_id(@comment) %>").html("<%= j render '/comments/comment', comment: @comment%>").css("display",  "none" );
+$("#<%= dom_id(@comment) %>").fadeIn(1000);
