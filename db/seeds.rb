@@ -37,6 +37,6 @@ Tag.create([{name: "Branding"},
             {name: "Self"},
             {name: "Today"}])
 
-User.create(first_name: 'Yii Van', last_name: 'Tay',
-              email: 'yiivan@blog.com', password: 'abc',
-              password_confirmation: 'abc', admin: true)
+User.create(first_name: "Yii Van", last_name: "Tay",
+              email: "yiivan@blog.com", password: "abc",
+              password_confirmation: "abc", admin: true)
