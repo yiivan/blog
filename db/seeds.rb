@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Category.destroy_all
+Tag.destroy_all
+User.destroy_all
+
 Category.create([{title: "Car"},
                  {title: "Design"},
                  {title: "Fashion"},
