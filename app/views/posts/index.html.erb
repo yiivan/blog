@@ -8,6 +8,9 @@
 <% if @posts.present? %>
   <ul>
     <% @posts.each do |p| %>
+      <% if p.image.present? %>
+        <%= image_tag p.image.url(:large) %>
+      <% end %>
       <li><%= link_to p.title, post_path(p) %> created at: <%= p.created_at.strftime("%Y-%b-%d") %></li>
     <% end %>
   </ul>

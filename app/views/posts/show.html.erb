@@ -1,4 +1,7 @@
 <h1><%= @post.title %></h1>
+<% if @post.image.present? %>
+  <%= image_tag @post.image.url(:large) %>
+<% end %>
 <h3>Category: <%= @post.category.title %></h3>
 <p><%= @post.body %></p>
 <p>Tags: <%= @post.tags.map{|t| t.name }.join(", ") %></p>

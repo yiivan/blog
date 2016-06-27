@@ -39,6 +39,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "cancancan"
 
+gem 'carrierwave'
+gem "mini_magick"
+gem "fog"
+
 gem 'bootswatch-rails'
 
 group :development, :test do
