@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
   belongs_to :category
   has_many :comments, dependent: :destroy
 
+  has_many :sections, dependent: :destroy
+
   has_many :favorites, dependent: :destroy
   has_many :favoriting_users, through: :favorite, source: :user
 
@@ -14,6 +16,8 @@ class Post < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true, length: { minimum: 7 }
   validates :body, presence: true
   validates :category, presence: true
+
+  mount_uploader :image, ImageUploader
 
   def self.search(search)
     where( "title ILIKE :term OR body ILIKE :term", term: "%#{search}%" )
