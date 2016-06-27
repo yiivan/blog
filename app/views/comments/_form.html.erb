@@ -1,6 +1,6 @@
 <%= form_for [@post, comment], remote: true do |f| %>
-  <div>
-    <%= f.text_area :body %>
+  <div class="form-group">
+    <%= f.text_area :body, class: "form-control" %>
   </div>
   <%= f.submit data: {disable_with: "submitting..."} %>
 <% end %>
