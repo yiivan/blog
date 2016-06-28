@@ -6,17 +6,27 @@
 <% end %>
 
 <% if @posts.present? %>
-  <ul>
+  <div>
     <% @posts.each do |p| %>
-      <% if p.image.present? %>
-        <%= image_tag p.image.url(:large) %>
-      <% end %>
-      <li><%= link_to p.title, post_path(p) %> created at: <%= p.created_at.strftime("%Y-%b-%d") %></li>
+      <div class="post-index col-lg-4">
+        <%= link_to post_path(p) do %>
+          <% if p.image.present? %>
+            <div class="post-index-image">
+              <%= image_tag p.image.url(:small) %>
+            </div>
+          <% end %>
+          <div class="post-index-title">
+            <%= link_to p.title, post_path(p) %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 <% else %>
   <h3>There are no blog posts containing the term "<%= params[:search] %>".</h3>
 <% end %>
 
-<%= paginate @posts %>
-<%= page_entries_info @posts %>
+<div class="col-xs-12">
+  <%= paginate @posts %>
+  <%= page_entries_info @posts %>
+</div>
