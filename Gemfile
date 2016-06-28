@@ -39,6 +39,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "cancancan"
 
+gem 'chosen-rails'
+gem 'jquery-turbolinks'
+
 gem 'carrierwave'
 gem "mini_magick"
 gem "fog"
