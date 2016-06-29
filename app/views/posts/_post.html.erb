@@ -1,0 +1,16 @@
+<div>
+  <% @posts.each do |p| %>
+    <div class="post-index col-lg-4">
+      <%= link_to post_path(p) do %>
+        <% if p.image.present? %>
+          <div class="post-index-image">
+            <%= image_tag p.image.url(:small) %>
+          </div>
+        <% end %>
+        <div class="post-index-title">
+          <%= link_to p.title, post_path(p) %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
