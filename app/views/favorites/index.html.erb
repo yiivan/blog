@@ -1,7 +1,12 @@
 <h1>Favorite Posts</h1>
 
-<ul>
-  <% current_user.favorite_posts.each do |favpost| %>
-    <li><%= link_to favpost.title, post_path(favpost) %></li>
-  <% end %>
-</ul>
+<% if @posts.present? %>
+  <%= render "/posts/post" %>
+<% else %>
+  <h3>You have no favorite posts.</h3>
+<% end %>
+
+<div class="col-xs-12">
+  <%= paginate @posts %>
+  <%= page_entries_info @posts %>
+</div>

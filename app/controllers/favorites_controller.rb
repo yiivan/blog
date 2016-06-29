@@ -18,6 +18,7 @@ class FavoritesController < ApplicationController
   end
 
   def index
+    @posts = current_user.favorite_posts.order(:title).page(params[:page]).per(9)
   end
 
   def destroy
