@@ -1,3 +1,25 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron-bg-color {
+  background-color: #e6e6fa;
+}
+
+.jumbotron-h1 {
+  font-family: Georgia;
+}
+
+.jumbotron-h3 {
+  font-family: Arial;
+}
+
+.new-blog-posts-title {
+  margin-left: 13%;
+}
+
+.carousel-title {
+  color: #3E3F3A;
+  background-color: white;
+  border-radius: 10px;
+}
