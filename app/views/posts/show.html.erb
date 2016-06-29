@@ -2,8 +2,8 @@
 <h4>Category: <%= @post.category.title %></h4>
 <p>Tags: <%= @post.tags.map{|t| t.name }.join(", ") %></p>
 <% if @post.image.present? %>
-  <div class="post-show-image">
-    <%= image_tag @post.image.url(:large) %>
+  <div>
+    <%= image_tag @post.image.url(:large), class: "post-show-image" %>
   </div>
 <% end %>
 <br>
