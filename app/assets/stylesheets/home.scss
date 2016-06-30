@@ -7,11 +7,11 @@
 }
 
 .jumbotron-h1 {
-  font-family: Georgia;
+  font-family: serif;
 }
 
 .jumbotron-h3 {
-  font-family: Arial;
+  font-family: sans-serif;
 }
 
 .new-blog-posts-title {
@@ -38,10 +38,15 @@
 }
 
 .about-title {
-  font-family: Georgia;
-  color: gray;
+  font-family: serif;
+}
+
+.about-image {
+  border: 10px solid white;
+  border-radius: 10px;
+  margin-left: 2px;
 }
 
 .about-body {
-  font-family: Palatino;
+  font-family: serif;
 }
