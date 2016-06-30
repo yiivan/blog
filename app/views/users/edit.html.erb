@@ -22,9 +22,9 @@
     <%= f.email_field :email, class: "form-control" %>
   </div>
   <div>
-    <%= f.submit "Update Info" %>
+    <%= f.submit "Update Info", class: "btn btn-primary" %>
   </div>
 <% end %>
 
 <br>
-<%= link_to "Change Password", edit_password_users_path %>
+<%= link_to "Change Password", edit_password_users_path, class: "btn btn-warning btn-sm" %>
