@@ -42,6 +42,9 @@ gem "cancancan"
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
 
+gem "cocoon"
+gem "quiet_assets"
+
 gem 'carrierwave'
 gem "mini_magick"
 gem "fog"

@@ -8,6 +8,17 @@
 <% end %>
 <br>
 <p><%= @post.body %></p>
+
+<% @post.sections.each do |sect| %>
+  <div>
+    <div>
+      <%= image_tag sect.image.url(:large), class: "post-show-section-image" %>
+    </div>
+    <p><%= sect.description %></p>
+  </div>
+<% end  %>
+
+
 <% if can? :update, @post %>
   <%= link_to "Edit", edit_post_path(@post) %>
 <% end %>

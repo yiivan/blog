@@ -5,6 +5,9 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   has_many :sections, dependent: :destroy
+  accepts_nested_attributes_for :sections,
+                                reject_if:     :all_blank,
+                                allow_destroy: true
 
   has_many :favorites, dependent: :destroy
   has_many :favoriting_users, through: :favorite, source: :user

@@ -1,0 +1,13 @@
+<div class='nested-fields'>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control section-description" %>
+  </div>
+  <%= link_to_remove_association "remove picture and description", f, class: "btn btn-danger btn-sm" %>
+  <hr>
+</div>
