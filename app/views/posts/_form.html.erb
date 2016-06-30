@@ -1,11 +1,3 @@
-<% if @post.errors.any? %>
-  <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <%= form_for @post do |f| %>
   <div class="form-group">
     <%= f.label :title %>
@@ -14,7 +6,7 @@
   <div class="form-group">
     <%= f.label :category %>
     <br>
-    <%= f.collection_select :category_id, Category.order(:title), :id, :title, class: "form-control" %>
+    <%= f.collection_select :category_id, Category.order(:title), :id, :title, {include_blank: true}, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.label :tag_ids, "Tags" %>
@@ -31,5 +23,14 @@
     <%= f.label :body %>
     <%= f.text_area :body, class: "form-control post-body" %>
   </div>
-  <%= f.submit %>
+
+  <div class="new-section form-group">
+    <%= f.fields_for :sections do |s| %>
+      <%= render "section_fields", f: s %>
+    <% end %>
+    <div class="add-section">
+      <%= link_to_add_association 'add pictures and description', f, :sections, class: "btn btn-success btn-sm" %>
+    </div>
+  </div>
+  <%= f.submit nil, class: "btn btn-primary btn-sm post-submit-btn" %>
 <% end %>

@@ -1,20 +1,31 @@
-<h1><%= @post.title %></h1>
-<h4>Category: <%= @post.category.title %></h4>
-<p>Tags: <%= @post.tags.map{|t| t.name }.join(", ") %></p>
+<h1 class="post-show-title"><strong><%= @post.title %></strong></h1>
+<h4 class="post-show-category"><strong>Category:</strong> <%= @post.category.title %></h4>
+<p class="post-show-tags"><strong>Tags:</strong> <%= @post.tags.map{|t| t.name }.join(", ") %></p>
 <% if @post.image.present? %>
   <div>
     <%= image_tag @post.image.url(:large), class: "post-show-image" %>
   </div>
 <% end %>
-<br>
-<p><%= @post.body %></p>
+<p class="post-show-body"><%= @post.body %></p>
+
+<% @post.sections.each do |sect| %>
+  <div class="show-section">
+    <div>
+      <%= image_tag sect.image.url(:large), class: "post-show-section-image" %>
+    </div>
+    <p class="post-show-body"><%= sect.description %></p>
+  </div>
+<% end  %>
+
+
 <% if can? :update, @post %>
-  <%= link_to "Edit", edit_post_path(@post) %>
+  <%= link_to "Edit Blog Post", edit_post_path(@post), class: "btn btn-default btn-sm" %>
 <% end %>
 <% if can? :destroy, @post %>
-  <%= link_to "Delete", post_path(@post),
+  <%= link_to "Delete Blog Post", post_path(@post),
                         method: :delete,
-                        data: {confirm: "Are you sure you want to delete this post?"}%>
+                        data: {confirm: "Are you sure you want to delete this post?"},
+                        class: "btn btn-danger btn-sm" %>
 <% end %>
 
 <div id="post-favorite">

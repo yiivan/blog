@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+textarea.post-body {
+  height: 180px;
+}
+
+textarea.section-description {
+  height: 120px;
+}
+
+.post-submit-btn {
+  margin-bottom: 6px;
+  float: right;
+}
+
 .post-index {
   margin-top: 25px;
 }
@@ -12,6 +25,24 @@
 
 .post-index-title {
   text-align: center;
+  font-size: 18px;
+  font-family: serif;
+}
+
+.pagination {
+  font-size: 12px;
+}
+
+.post-show-title {
+  font-family: serif;
+}
+
+.post-show-category {
+  font-family: serif;
+}
+
+.post-show-tags {
+  font-family: serif;
 }
 
 .post-show-image {
@@ -19,6 +50,20 @@
   padding: 0px;
 }
 
-textarea.post-body {
-  height: 180px;
+.post-show-body {
+  font-family: serif;
+  font-size: 22px;
+}
+
+.show-section {
+  margin: 30px auto;
+}
+
+.post-show-section-image {
+  width: 100%;
+  padding: 0px;
+}
+
+#post-favorite {
+  margin: 10px auto;
 }

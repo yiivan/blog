@@ -7,8 +7,10 @@
             <%= image_tag p.image.url(:small) %>
           </div>
         <% end %>
-        <div class="post-index-title">
-          <%= link_to p.title, post_path(p) %>
+        <div>
+          <%= link_to post_path(p) do %>
+            <div class="post-index-title"><strong><%= p.title %></strong></div>
+          <% end %>
         </div>
       <% end %>
     </div>

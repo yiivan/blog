@@ -1,8 +1,14 @@
-<%= form_for [@post, comment], remote: true do |f| %>
+<% if user_signed_in? %>
+  <% bool = true %>
+<% else %>
+  <% bool = false %>
+<% end %>
+
+<%= form_for [@post, comment], remote: bool do |f| %>
   <div class="form-group">
     <%= f.text_area :body, class: "form-control" %>
   </div>
-  <%= f.submit data: {disable_with: "submitting..."} %>
+  <%= f.submit data: {disable_with: "submitting..."}, class: "btn btn-primary btn-sm" %>
 <% end %>
 <br>
 <%= comment.errors.full_messages.join(", ") %>

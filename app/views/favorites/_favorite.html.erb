@@ -1,7 +1,17 @@
-<% if user_favorite %>
-  <%= link_to "Un-favorite", post_favorite_path(@post, user_favorite), method: :delete, remote: true %>
+<% if user_signed_in? %>
+  <% bool = true %>
 <% else %>
-  <%= link_to "Favorite", post_favorites_path(@post), method: :post, remote: true %>
+  <% bool = false %>
 <% end %>
 
-(<%= @post.favorites.count %>)
+<% if user_favorite %>
+  <%= link_to post_favorite_path(@post, user_favorite), method: :delete, remote: bool, class: "fav-icon" do %>
+    <span class="glyphicon glyphicon-heart text-danger"></span>
+  <% end %>
+<% else %>
+  <%= link_to post_favorites_path(@post), method: :post, remote: bool, class: "fav-icon" do %>
+    <span class="glyphicon glyphicon-heart-empty text-danger"></span>
+  <% end %>
+<% end %>
+
+<span>(<%= @post.favorites.count %>)</span>
