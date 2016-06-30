@@ -24,13 +24,13 @@
     <%= f.text_area :body, class: "form-control post-body" %>
   </div>
 
-  <div class="section">
+  <div class="new-section form-group">
     <%= f.fields_for :sections do |s| %>
       <%= render "section_fields", f: s %>
     <% end %>
-    <div class="links">
-      <%= link_to_add_association 'add pictures and description', f, :sections %>
+    <div class="add-section">
+      <%= link_to_add_association 'add pictures and description', f, :sections, class: "btn btn-success btn-sm" %>
     </div>
   </div>
-  <%= f.submit %>
+  <%= f.submit nil, class: "btn btn-primary btn-sm post-submit-btn" %>
 <% end %>

@@ -2,7 +2,7 @@
   <div class="form-group">
     <%= f.text_area :body, class: "form-control" %>
   </div>
-  <%= f.submit data: {disable_with: "submitting..."} %>
+  <%= f.submit data: {disable_with: "submitting..."}, class: "btn btn-primary btn-sm" %>
 <% end %>
 <br>
 <%= comment.errors.full_messages.join(", ") %>
