@@ -8,6 +8,8 @@
     <%= f.label :description %>
     <%= f.text_area :description, class: "form-control section-description" %>
   </div>
-  <%= link_to_remove_association "remove picture and description", f, class: "btn btn-danger btn-sm" %>
+  <%= link_to_remove_association "remove picture and description", f,
+                                  data: {confirm: "Are you sure you want to remove this picture and its description?"},
+                                  class: "btn btn-danger btn-sm" %>
   <hr>
 </div>
