@@ -19,6 +19,7 @@ class Post < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true, length: { minimum: 7 }
   validates :body, presence: true
   validates :category, presence: true
+  validates :image, presence: true
 
   mount_uploader :image, ImageUploader
 
