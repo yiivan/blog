@@ -1,3 +1,19 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-title {
+  color: #3E3F3A;
+  font-family: serif;
+  text-decoration: underline;
+}
+
+.comment-user-name {
+  color: #93C54B;
+  font-family: serif;
+}
+
+.edit-delete-btns {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
