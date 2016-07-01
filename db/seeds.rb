@@ -40,3 +40,7 @@ Tag.create([{name: "Branding"},
 User.create(first_name: "Yii Van", last_name: "Tay",
               email: "yiivan@blog.com", password: "abc",
               password_confirmation: "abc", admin: true)
+
+User.create(first_name: "Guest", last_name: "Tay",
+              email: "guest@blog.com", password: "abc",
+              password_confirmation: "abc")
