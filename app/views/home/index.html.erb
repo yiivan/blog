@@ -3,49 +3,66 @@
   <h3 class="jumbotron-h3">THEY KNOW THE WAY</h3>
 </div>
 
-<h2 class="new-blog-posts-title"><strong>New Blog Posts:</strong></h2>
+<% if @posts.present? %>
+  <h2 class="new-blog-posts-title"><strong>New Blog Posts:</strong></h2>
 
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <% if @posts.length >= 1 %>
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <% end %>
+      <% if @posts.length >= 2 %>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <% end %>
+      <% if @posts.length == 3 %>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      <% end %>
+    </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <%= link_to post_path(@post01) do %>
-        <%= image_tag @post01.image.url(:medium) %>
-        <div class="carousel-caption">
-          <h1 class="carousel-title"><%= @post01.title %></h1>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <% if @posts.length >= 1 %>
+        <% post01 = @posts.last %>
+        <div class="item active">
+          <%= link_to post_path(post01) do %>
+            <%= image_tag post01.image.url(:medium) %>
+            <div class="carousel-caption">
+              <h1 class="carousel-title"><%= post01.title %></h1>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <% if @posts.length >= 2 %>
+        <% post02 = @posts.last(2).first %>
+        <div class="item">
+          <%= link_to post_path(post02) do %>
+            <%= image_tag post02.image.url(:medium) %>
+            <div class="carousel-caption">
+              <h1 class="carousel-title"><%= post02.title %></h1>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <% if @posts.length == 3 %>
+        <% post03 = @posts.first %>
+        <div class="item">
+          <%= link_to post_path(post03) do %>
+            <%= image_tag post03.image.url(:medium) %>
+            <div class="carousel-caption">
+              <h1 class="carousel-title"><%= post03.title %></h1>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
-    <div class="item">
-      <%= link_to post_path(@post02) do %>
-        <%= image_tag @post02.image.url(:medium) %>
-        <div class="carousel-caption">
-          <h1 class="carousel-title"><%= @post02.title %></h1>
-        </div>
-      <% end %>
-    </div>
-    <div class="item">
-      <%= link_to post_path(@post03) do %>
-        <%= image_tag @post03.image.url(:medium) %>
-        <div class="carousel-caption">
-          <h1 class="carousel-title"><%= @post03.title %></h1>
-        </div>
-      <% end %>
-    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
   </div>
-
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
+<% end %>
