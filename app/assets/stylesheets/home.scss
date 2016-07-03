@@ -51,3 +51,21 @@
 .about-body {
   font-family: serif;
 }
+
+@media (min-width: 768px) {
+  .carousel-title {
+    font-size:20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .carousel-title {
+    font-size:28px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .carousel-title {
+    font-size:36px;
+  }
+}
