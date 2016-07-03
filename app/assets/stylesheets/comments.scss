@@ -17,3 +17,13 @@
   margin-top: 15px;
   margin-bottom: 5px;
 }
+
+@media (min-width: 1200px) {
+  .comment-user-name {
+    font-size: 18px;
+  }
+
+  .comment-body {
+    font-size: 16px;
+  }
+}

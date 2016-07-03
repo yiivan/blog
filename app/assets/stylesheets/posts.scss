@@ -54,7 +54,7 @@ textarea.section-description {
 
 .post-show-body {
   font-family: serif;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .show-section {
@@ -68,4 +68,10 @@ textarea.section-description {
 
 #post-favorite {
   margin: 10px auto;
+}
+
+@media (min-width: 768px) {
+  .post-show-body {
+    font-size: 22px;
+  }
 }

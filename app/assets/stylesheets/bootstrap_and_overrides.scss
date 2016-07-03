@@ -4,6 +4,10 @@
 body { padding-top: 60px; }
 @import "bootswatch/sandstone/bootswatch";
 
+.chosen-container {
+  width: 100% !important;
+}
+
 .carousel {
   width: 72%;
   margin: 0 auto;

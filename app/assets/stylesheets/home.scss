@@ -28,9 +28,10 @@
 .about-bg-color {
   position: absolute;
   top: 60px;
-  bottom: 0px;
+  bottom: auto;
   left: 0px;
   right: 0px;
+  min-height: calc(100% - 60px);
   background-color: #e6e6fa;
 }
 
@@ -44,7 +45,7 @@
 }
 
 .about-image {
-  width: 233px;
+  width: 90%;
   border: 10px solid white;
   border-radius: 10px;
   margin-left: 2px;
@@ -52,7 +53,7 @@
 
 .about-body {
   font-family: serif;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 @media (min-width: 768px) {
