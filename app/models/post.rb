@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   def self.search(search)
-    where( "title ILIKE :term OR body ILIKE :term", term: "%#{search}%" )
+    eager_load(:sections).where( "title ILIKE :term OR body ILIKE :term OR sections.description ILIKE :term", term: "%#{search}%" )
   end
 
   def body_snippet
