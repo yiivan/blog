@@ -1,7 +1,6 @@
 <div id="<%= dom_id(comment) %>" class="well well-sm" style="<%= style if defined?(style) %>">
-  <span class="comment-user-name"><strong><%= comment.user.full_name.titleize %></strong></span>
-  <br>
-  <%= comment.body %>
+  <div class="comment-user-name"><strong><%= comment.user.full_name.titleize %></strong></div>
+  <div class="comment-body"><%= comment.body %></div>
 
   <div class="edit-delete-btns">
     <% if can? :edit, comment %>
