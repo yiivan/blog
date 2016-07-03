@@ -35,7 +35,8 @@
 }
 
 .about-page {
-  margin-left: 100px;
+  margin-left: 38px;
+  margin-right: 10px;
 }
 
 .about-title {
@@ -43,6 +44,7 @@
 }
 
 .about-image {
+  width: 233px;
   border: 10px solid white;
   border-radius: 10px;
   margin-left: 2px;
@@ -50,4 +52,32 @@
 
 .about-body {
   font-family: serif;
+  font-size: 17px;
+}
+
+@media (min-width: 768px) {
+  .carousel-title {
+    font-size:20px;
+  }
+  .about-image {
+    width: auto;
+  }
+  .about-body {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 992px) {
+  .carousel-title {
+    font-size:28px;
+  }
+  .about-page {
+    margin-left: 100px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .carousel-title {
+    font-size:36px;
+  }
 }
