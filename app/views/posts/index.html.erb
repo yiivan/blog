@@ -4,7 +4,7 @@
   <h3>There are no blog posts containing the term "<%= params[:search] %>".</h3>
 <% end %>
 
-<div class="col-xs-12 pagination">
+<div class="col-xs-12 posts-pagination">
   <%= paginate @posts %>
   <%= page_entries_info @posts %>
 </div>
