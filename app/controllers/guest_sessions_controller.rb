@@ -15,6 +15,6 @@ class GuestSessionsController < ApplicationController
   end
 
   def redirect_if_signed_in
-    redirect_to root_path, notice: "Already signed in" if user_signed_in?
+    redirect_to root_path, notice: "Already signed in as #{current_user.first_name}!" if user_signed_in?
   end
 end
