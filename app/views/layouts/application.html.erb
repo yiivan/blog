@@ -46,6 +46,7 @@
             <li><%= link_to current_user.first_name, edit_users_path%></li>
             <li><%= link_to "Sign out", sessions_path, method: :delete %></li>
           <% else %>
+            <li><%= link_to "Guest Sign In (Demo)", guest_sessions_path, method: :post %></li>
             <li><%= link_to "Sign In", new_session_path %></li>
             <li><%= link_to "Register", new_user_path %></li>
           <% end %>

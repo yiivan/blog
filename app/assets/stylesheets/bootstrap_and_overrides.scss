@@ -8,6 +8,11 @@ body { padding-top: 60px; }
   width: 100% !important;
 }
 
+.alert {
+  position: relative;
+  z-index: 1;
+}
+
 .carousel {
   width: 72%;
   margin: 0 auto;
