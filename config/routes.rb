@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
 
+  resources :guest_sessions, only: :create
+
   resources :posts do
     resources :comments, only: [:create, :destroy, :edit, :update]
     resources :favorites, only: [:create, :destroy]

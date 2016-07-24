@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :redirect_if_loggedin, only: [:new, :create]
+  before_action :redirect_if_signed_in, only: [:new, :create]
 
   def new
   end
@@ -17,12 +17,12 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, notice: "Logged out!"
+    redirect_to root_path, notice: "Signed out!"
   end
 
   private
 
-  def redirect_if_loggedin
-    redirect_to root_path, notice: "Already logged in" if user_signed_in?
+  def redirect_if_signed_in
+    redirect_to root_path, notice: "Already signed in as #{current_user.first_name}!" if user_signed_in?
   end
 end
