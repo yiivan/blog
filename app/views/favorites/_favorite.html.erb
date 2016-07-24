@@ -6,11 +6,11 @@
 
 <% if user_favorite %>
   <%= link_to post_favorite_path(@post, user_favorite), method: :delete, remote: bool, class: "fav-icon" do %>
-    <span class="glyphicon glyphicon-heart text-danger"></span>
+    <span class="glyphicon glyphicon-heart text-danger"><span class="favorite-label">Favorite</span></span>
   <% end %>
 <% else %>
   <%= link_to post_favorites_path(@post), method: :post, remote: bool, class: "fav-icon" do %>
-    <span class="glyphicon glyphicon-heart-empty text-danger"></span>
+    <span class="glyphicon glyphicon-heart-empty text-danger"><span class="favorite-label">Favorite</span></span>
   <% end %>
 <% end %>
 
