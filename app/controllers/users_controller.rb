@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       sign_in(@user)
       redirect_to root_path, notice: "Account created!"
     else
+      flash.now[:alert] = "Account not created! Missing fields!"
       render :new
     end
   end
